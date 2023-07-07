@@ -38,7 +38,7 @@ struct Pokemon: Decodable {
         }
         
         enum SpritesKeys: String, CodingKey {
-            case backDefault = "back_default"
+            case frontDefault = "front_default"
         }
     }
     
@@ -75,7 +75,7 @@ struct Pokemon: Decodable {
         
         //sprite
         let spritesContainer = try container.nestedContainer(keyedBy: CodingKeys.SpritesKeys.self, forKey: .sprites)
-        let spriteString = try spritesContainer.decode(String.self, forKey: .backDefault)
+        let spriteString = try spritesContainer.decode(String.self, forKey: .frontDefault)
         guard let spriteURL = URL(string: spriteString) else { fatalError("Sprite URL is not a URL.") }
         sprite = spriteURL
         

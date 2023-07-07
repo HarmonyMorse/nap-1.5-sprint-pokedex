@@ -63,5 +63,7 @@ import Foundation
  //MARK: - PokemonDetailVC
  
  //MARK: - PokemonSearchVC
+ -IBAction to Button and Search
+ -IBOutlets from imageView and labels
  
  */
