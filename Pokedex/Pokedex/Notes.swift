@@ -14,10 +14,10 @@ import Foundation
  PokedexTableVC
  -Embedded in Nav Controller
  -Title: Pokedex
- -Nav item "search" top right
+ -Bar button item "search" top right
  -1 section
  -Items in Section = # of Pokemon in deck
- -Cell: simple - just shows the name of the Pokemon
+ -Cell: "Basic" - just shows the name of the Pokemon
  
  PokemonSearchVC
  -Title: "Pokemon Search" until searched, then name of the Pokemon
