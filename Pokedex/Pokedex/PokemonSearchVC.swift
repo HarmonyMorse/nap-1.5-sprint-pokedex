@@ -10,6 +10,7 @@ import UIKit
 class PokemonSearchVC: UIViewController, UISearchBarDelegate {
     
     var pokeController: PokeController!
+    var pokemon: Pokemon?
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var nameLabel: UILabel!
@@ -35,8 +36,12 @@ class PokemonSearchVC: UIViewController, UISearchBarDelegate {
     
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        
+        guard let pokemon = pokemon else { return }
+        pokeController.pokemonList.append(pokemon)
+//        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
         pokeController.fetchDetails(for: searchText) { result in
@@ -44,7 +49,7 @@ class PokemonSearchVC: UIViewController, UISearchBarDelegate {
             case .success(let success):
                 DispatchQueue.main.async {
                     self.fillPage(with: success)
-                    self.pokeController.pokemonList.append(success)
+                    self.pokemon = success
                 }
             case .failure(let failure):
                 print("failed: \(failure)")
@@ -66,7 +71,7 @@ class PokemonSearchVC: UIViewController, UISearchBarDelegate {
                     self.imageView.image = success
                 }
             case .failure(let failure):
-                print("safdskjhfa")
+                print("Failure getting image: \(failure)")
             }
         })
         
