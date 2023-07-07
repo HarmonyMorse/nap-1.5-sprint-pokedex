@@ -10,4 +10,41 @@ import UIKit
 
 final class APIController {
     
+    enum NetworkError: Error {
+        case errorReceiving, noData
+    }
+    
+    private let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon")!
+    
+    private lazy var jsonDecoder = JSONDecoder()
+    
+    func fetchDetails(for pokemonSearch: String, completion: @escaping (Result<Pokemon, NetworkError>) -> Void ) {
+        
+        var request = URLRequest(url: baseURL.appendingPathComponent(pokemonSearch))
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let error = error {
+                print("Error receiving Pokemon detail data: \(error)")
+                completion(.failure(.errorReceiving))
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received from fetchDetails for Pokemon: \(pokemonSearch)")
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                let pokemon = try self.jsonDecoder.decode(Pokemon.self, from: data)
+                completion(.success(pokemon))
+            } catch {
+                print("Error decoding Pokemon (\(pokemonSearch)) detail data: \(error)")
+            }
+        }
+        
+        task.resume()
+    }
+    
 }

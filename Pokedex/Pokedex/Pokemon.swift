@@ -9,7 +9,7 @@ import Foundation
 
 struct Pokemon: Decodable {
     let name: String
-    let id: String
+    let id: Int
     let types: [String]
     let abilities: [String]
     let sprite: URL
@@ -49,7 +49,7 @@ struct Pokemon: Decodable {
         name = try container.decode(String.self, forKey: .name)
         
         //id
-        id = try container.decode(String.self, forKey: .id)
+        id = try container.decode(Int.self, forKey: .id)
         
         //types
         var typesContainer = try container.nestedUnkeyedContainer(forKey: .types)

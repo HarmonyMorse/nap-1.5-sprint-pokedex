@@ -14,6 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Testing fetchDetails and Decoder
+        let apiController = APIController()
+        apiController.fetchDetails(for: "1") { result in
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print("failed: \(failure)")
+            }
+        }
+        
         return true
     }
 
