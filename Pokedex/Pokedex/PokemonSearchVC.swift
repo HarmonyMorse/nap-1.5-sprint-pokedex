@@ -8,6 +8,8 @@
 import UIKit
 
 class PokemonSearchVC: UIViewController {
+    
+    var pokeController: PokeController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
