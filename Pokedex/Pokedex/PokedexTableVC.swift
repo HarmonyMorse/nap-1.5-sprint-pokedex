@@ -98,7 +98,10 @@ class PokedexTableVC: UITableViewController {
                 searchVC.pokeController = pokeController
             }
         } else if segue.identifier == "ShowDetail" {
-            // TODO: fill in segue preparation
+            if let detailVC = segue.destination as? PokemonDetailVC, let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.pokeController = pokeController
+                detailVC.pokemon = pokeController.pokemonList[indexPath.row]
+            }
         } else {
             
         }

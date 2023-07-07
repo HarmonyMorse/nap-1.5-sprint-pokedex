@@ -229,6 +229,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pokemon" id="L6F-Ep-nhU"/>
+                    <connections>
+                        <outlet property="abilitiesLabel" destination="U28-u5-VqH" id="LXj-ym-MxO"/>
+                        <outlet property="idLabel" destination="c61-dE-yGP" id="zpR-1c-R2R"/>
+                        <outlet property="imageView" destination="duz-Hr-YYD" id="RQV-ut-1bV"/>
+                        <outlet property="nameLabel" destination="Hxg-T4-BtM" id="OmI-Nj-kaG"/>
+                        <outlet property="typesLabel" destination="Mut-bB-qFA" id="yGs-u6-UbB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHT-H5-p65" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
