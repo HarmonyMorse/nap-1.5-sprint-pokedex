@@ -33,4 +33,16 @@ import Foundation
  -ImageView of Pokemon picture
  -3 Labels for ID, Types, and Abilities
  
+ //MARK: - Pokemon
+ -Name
+    >name: String -> String
+ -ID
+    >id: String -> String
+ -Types
+    >types: [type: {name: String}] -> [String]
+ -Abilities
+    >abilities: [ability: {name: String}] -> [String]
+ -Sprite (front_default)
+    >sprites: {back_default: String} -> URL
+ 
  */
