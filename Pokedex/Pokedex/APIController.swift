@@ -47,4 +47,27 @@ final class APIController {
         task.resume()
     }
     
+    func fetchImage(at imageURL: URL, completion: @escaping (Result<UIImage, NetworkError>) -> Void ) {
+        var request = URLRequest(url: imageURL)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let error = error {
+                print("Error receiving animal image: \(imageURL), error: \(error)")
+                completion(.failure(.errorReceiving))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            guard let image = UIImage(data: data) else { return }
+            completion(.success(image))
+        }
+        
+        task.resume()
+    }
+    
 }
