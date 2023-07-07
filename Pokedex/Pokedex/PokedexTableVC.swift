@@ -33,15 +33,18 @@ class PokedexTableVC: UITableViewController {
         return pokeController.pokemonList.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pokemonCell", for: indexPath)
 
         // Configure the cell...
-
+        var config = cell.defaultContentConfiguration()
+        config.text = pokeController.pokemonList[indexPath.row].name
+        cell.contentConfiguration = config
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
