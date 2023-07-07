@@ -16,15 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //Testing fetchDetails and Decoder
-        let apiController = APIController()
-        apiController.fetchDetails(for: "1") { result in
-            switch result {
-            case .success(let success):
-                print(success)
-            case .failure(let failure):
-                print("failed: \(failure)")
-            }
-        }
+//        let apiController = PokeController()
+//        apiController.fetchDetails(for: "1") { result in
+//            switch result {
+//            case .success(let success):
+//                print(success)
+//            case .failure(let failure):
+//                print("failed: \(failure)")
+//            }
+//        }
         
         return true
     }

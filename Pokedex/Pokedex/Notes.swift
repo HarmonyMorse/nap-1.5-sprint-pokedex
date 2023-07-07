@@ -45,7 +45,8 @@ import Foundation
  -Sprite (front_default)
     >sprites: {back_default: String} -> URL
  
- //MARK: - API Controller
+ //MARK: - PokeController
+ -Pokemon Array
  -HTTP Method - GET
  -Network Errors
  -Base URL
@@ -54,6 +55,10 @@ import Foundation
  -FetchImage
  
  //MARK: - PokedexTableVC
+ -numberOfRowsInSection
+ -cellForRowAt
+ -IBAction for search button
+ -Prepare for segue function
  
  //MARK: - PokemonDetailVC
  
